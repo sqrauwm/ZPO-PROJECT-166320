@@ -84,9 +84,12 @@ namespace WardrobeApp.Data
                     return;
 
                 string json = File.ReadAllText(filePath);
+                if (string.IsNullOrWhiteSpace(json))
+                    return;
+
                 var list = JsonSerializer.Deserialize<List<ClothingItem>>(json);
-                if (list != null)
-                    throw new DataLoadException("Deserializacja pliku JSON zwróciła null.");
+                if (list == null)
+                    return;
 
                 _wardrobe.Clear();
                 foreach (var item in list)
@@ -99,5 +102,6 @@ namespace WardrobeApp.Data
                 throw new DataLoadException("Błąd podczas wczytywania danych z pliku JSON", ex);
             }
         }
+
     }
 }

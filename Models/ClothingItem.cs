@@ -9,18 +9,18 @@ namespace WardrobeApp.Models
     public class ClothingItem : Clothing
     {
         public string Material {  get; set; }
-        public bool IsFavourite { get; set; }
+        public bool IsFavorite { get; set; }
 
         public ClothingItem(int id, string name, string category, string color, string size, 
-            string material, bool isFavourite) : base(id, name, category, color, size) 
+            string material, bool isFavorite) : base(id, name, category, color, size) 
         {
             Material = material;
-            IsFavourite = isFavourite;
+            IsFavorite = isFavorite;
         }
 
         public override string GetDisplayText()
         {
-            string fav = IsFavourite ? " (Ulubiony" : "";
+            string fav = IsFavorite ? " (Ulubiony" : "";
             return $"{Name} [{Category}] - {Color}, rozmiar {Size}, materiał: {Material}{fav}";
         }
     }

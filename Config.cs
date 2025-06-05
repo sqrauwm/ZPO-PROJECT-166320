@@ -17,7 +17,7 @@ namespace WardrobeApp
         public string DataFilePath { get; set; }
         public string WindowTitle { get; set; }
 
-        private Config() { }    
+        public Config() { }    
 
         private static Config LoadConfig() 
         {   
